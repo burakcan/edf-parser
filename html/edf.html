@@ -1,0 +1,235 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Edf format specification</title>
+  </head>
+  <body>
+           <div class="container">
+  <h1>Edf format specification</h1>
+
+      
+<a name='type-edf'></a>
+<h1>Type: Edf</h1>
+
+<table class="table">
+<tr><th>Offset</th><th>Size</th><th>ID</th><th>Type</th><th>Note</th></tr>
+<tr>
+<td>0</td>
+<td>...</td>
+<td>header</td>
+<td><a href="#type-edf-header">Header</a></td>
+<td></td>
+</tr>
+<tr>
+<td>???</td>
+<td>...</td>
+<td>body</td>
+<td><a href="#type-edf-body">Body</a></td>
+<td></td>
+</tr>
+</table>
+<a name='type-edf-header'></a>
+<h2>Type: Header</h2>
+
+<table class="table">
+<tr><th>Offset</th><th>Size</th><th>ID</th><th>Type</th><th>Note</th></tr>
+<tr>
+<td>0</td>
+<td>...</td>
+<td>version</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>...</td>
+<td>patient_id</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>88</td>
+<td>...</td>
+<td>recording_id</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>168</td>
+<td>...</td>
+<td>start_date</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>176</td>
+<td>...</td>
+<td>start_time</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>184</td>
+<td>...</td>
+<td>header_num_bytes</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>192</td>
+<td>...</td>
+<td>reserved</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>236</td>
+<td>...</td>
+<td>num_data_records</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>244</td>
+<td>...</td>
+<td>data_duration</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>252</td>
+<td>...</td>
+<td>num_signals</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>256</td>
+<td>...</td>
+<td>labels</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>???</td>
+<td>...</td>
+<td>transducers</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>???</td>
+<td>...</td>
+<td>phys_dimensions</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>???</td>
+<td>...</td>
+<td>phys_mins</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>???</td>
+<td>...</td>
+<td>phys_maxes</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>???</td>
+<td>...</td>
+<td>dig_mins</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>???</td>
+<td>...</td>
+<td>dig_maxes</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>???</td>
+<td>...</td>
+<td>prefiltering</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>???</td>
+<td>...</td>
+<td>num_samples</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+<tr>
+<td>???</td>
+<td>...</td>
+<td>signals_reserved</td>
+<td>str(ASCII)</td>
+<td></td>
+</tr>
+</table>
+value instance: ValueInstanceSpec(List(types, header, instances, ns),DocSpec(None,List()),Attribute(Name(identifier(num_signals)),identifier(to_i)),None,Some(CalcIntType))
+value instance: ValueInstanceSpec(List(types, header, instances, ndr),DocSpec(None,List()),Attribute(Name(identifier(num_data_records)),identifier(to_i)),None,Some(CalcIntType))
+<a name='type-edf-body'></a>
+<h2>Type: Body</h2>
+
+<table class="table">
+<tr><th>Offset</th><th>Size</th><th>ID</th><th>Type</th><th>Note</th></tr>
+<tr>
+<td>0</td>
+<td>...</td>
+<td>signals</td>
+<td><a href="#type-edf-body-signal">Signal</a></td>
+<td></td>
+</tr>
+</table>
+<a name='type-edf-body-data_recording'></a>
+<h3>Type: DataRecording</h3>
+
+<table class="table">
+<tr><th>Offset</th><th>Size</th><th>ID</th><th>Type</th><th>Note</th></tr>
+<tr>
+<td>0</td>
+<td>...</td>
+<td>data</td>
+<td>u2le</td>
+<td></td>
+</tr>
+</table>
+<a name='type-edf-body-signal'></a>
+<h3>Type: Signal</h3>
+
+<table class="table">
+<tr><th>Offset</th><th>Size</th><th>ID</th><th>Type</th><th>Note</th></tr>
+<tr>
+<td>0</td>
+<td>...</td>
+<td>recordings</td>
+<td><a href="#type-edf-body-data_recording">DataRecording</a></td>
+<td></td>
+</tr>
+</table>
+
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
+      
